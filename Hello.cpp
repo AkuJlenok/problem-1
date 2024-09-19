@@ -14,7 +14,7 @@ int Hello()
 	
 	while (true)
 	{
-		cin>>text;
+		getline(cin,text);
 		cout<<"Hello, " << text << "!" <<endl; 
 	}
 	
