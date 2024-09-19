@@ -15,6 +15,10 @@ int Hello()
 	while (true)
 	{
 		getline(cin,text);
+		if (text == "stop")
+		{
+			break;
+		}
 		cout<<"Hello, " << text << "!" <<endl; 
 	}
 	
