@@ -8,4 +8,4 @@ Array.o: Array.cpp Array.hpp
 	g++ -c Array.cpp
 
 clean:
-	rm *.o run
+	rm *.o run answer_file
