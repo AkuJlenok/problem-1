@@ -32,6 +32,7 @@ int Array ()
     outfile.open("answer_file",std::ios::binary|std::ios::out);
     outfile.write(reversed_file,file_size);
     delete [] reversed_file;
+    outfile.close();
     
     return 0;   
 }
