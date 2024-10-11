@@ -10,6 +10,7 @@ float Polski()
 {
     char symbol = ' ';
     bool was_operation = false;
+    bool operand_exist = false;
     int digit = 0;
     int power = 0;
     int stack_size = 0;
@@ -27,7 +28,7 @@ float Polski()
 
         if (symbol == ' ')
         {
-            if (number != 0)
+            if (operand_exist)
             {
                 // stack -> temporary stack
                 stack_size = stack_size + 1;
@@ -41,6 +42,7 @@ float Polski()
                 temp_stack[stack_size - 1] = number * pow(10,power);
                 number = 0;
                 power = 0;
+                operand_exist = false;
                 
                 //temporary stack -> stack
                 delete [] stack;
@@ -114,6 +116,7 @@ float Polski()
                     digit = symbol - '0';
                     power = power + 1;
                     number = number + digit*pow(10, power*(-1));
+                    operand_exist = true;
             }
             
             if (was_operation)
