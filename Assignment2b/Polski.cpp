@@ -9,6 +9,7 @@ function for solving reversed Polish notation
 float Polski()
 {
     char symbol = ' ';
+    bool was_operation = false;
     int digit = 0;
     int power = 0;
     int stack_size = 0;
@@ -48,34 +49,85 @@ float Polski()
                 {
                     stack[k] = temp_stack[k];
                 }
-                
                 delete [] temp_stack;
             }
         }
         
         else
         {
+            stack_size = stack_size - 1;
+            float* temp_stack = new float [1];
+            if (stack_size > 1)
+            {
+                delete [] temp_stack;
+                float* temp_stack = new float [stack_size];
+            }
+            
             switch(symbol)
             {
                 case '+':
+                    for (int a1 = 0; a1 < (stack_size - 1); ++a1)
+                    {
+                        temp_stack[a1] = stack[a1];
+                    }
+                    
+                    temp_stack[stack_size-1] = stack[stack_size-1] + stack[stack_size];
+                    was_operation = true;
+                    delete [] stack;
                     break;
+                    
                 case '-':
+                    for (int a2 = 0; a2 < (stack_size - 1); ++a2)
+                    {
+                        temp_stack[a2] = stack[a2];
+                    }
+                    
+                    temp_stack[stack_size-1] = stack[stack_size-1] - stack[stack_size];
+                    was_operation = true;
+                    delete [] stack;
                     break;
+                    
                 case '*':
+                    for (int a3 = 0; a3 < (stack_size - 1); ++a3)
+                    {
+                        temp_stack[a3] = stack[a3];
+                    }
+                    
+                    temp_stack[stack_size-1] = stack[stack_size-1] * stack[stack_size];
+                    was_operation = true;
+                    delete [] stack;
                     break;
+                    
                 case '/':
+                    for (int a4 = 0; a4 < (stack_size - 1); ++a4)
+                    {
+                        temp_stack[a4] = stack[a4];
+                    }
+                    
+                    temp_stack[stack_size-1] = stack[stack_size-1] / stack[stack_size];
+                    was_operation = true;
+                    delete [] stack;
                     break;
+                    
                 default: //reads all digits
+                    stack_size = stack_size + 1;
                     digit = symbol - '0';
                     power = power + 1;
                     number = number + digit*pow(10, power*(-1));
             }
+            
+            if (was_operation)
+            {
+                float* stack = new float [stack_size];
+                for(int l = 0; l < stack_size; ++l)
+                {
+                    stack[l] = temp_stack[l];
+                }
+            }
+            
+            delete [] temp_stack;
         }    
     }
-    
-    for (int p = 0, p < stack_size, ++p)
-    {
-         std::cout<<stack[p]<<std::endl;
-    }
+    std::cout<<stack[stack_size-1]<<std::endl;
     return 0;
 }
