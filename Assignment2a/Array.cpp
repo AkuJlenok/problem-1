@@ -20,12 +20,12 @@ int Array ()
     
     //saves file into array and reverses into another one
     infile.read(file,file_size);
+    infile.close();
     for (int i = 0; i < file_size; ++i)
     {
-        reversed_file[i] = file[file_size-i];
+        reversed_file[i] = file[file_size-i-1];
     }
     delete [] file;
-    infile.close();
     
     //writes reversed array into the new file
     std::ofstream outfile;
