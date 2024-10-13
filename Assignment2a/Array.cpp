@@ -12,7 +12,7 @@ int Array ()
     //opens file and reads its size
     std::ifstream infile;
     infile.open("filetoread",std::ios::binary|std::ios::in);
-    int file_size = std::filesystem::file_size("filetoread");
+    int file_size = std::filesystem::file_size("filetoread") - 1;
     
     //arrays to save and reverse file
     char* file = new char [file_size];
