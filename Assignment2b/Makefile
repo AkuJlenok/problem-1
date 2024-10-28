@@ -4,7 +4,7 @@ run: main.o Polski.o
 main.o: main.cpp
 	g++ -c main.cpp
 
-Array.o: Polski.cpp Polski.hpp
+Polski.o: Polski.cpp Polski.hpp
 	g++ -c Polski.cpp
 
 clean:

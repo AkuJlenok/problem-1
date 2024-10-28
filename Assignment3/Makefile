@@ -1,8 +1,53 @@
-run: 
+PROJECT = transformer
 
-main.o: 
+TESTPROJECT = test-$(PROJECT)
 
-Array.o: 
+LIBPROJECT = $(PROJECT).a
+
+OBJECTS = Transformer.o Weapon.o
+
+TEST_OBJECTS = test-transformer.o
+
+DEPS = (wildcard *.hpp)
+
+A = ar
+
+AFLAGS = rsv
+
+CXX = g++
+
+CCXFLAGS = -I. -std=c++17 -Wall -g -fPIC
+
+LDXXFLAGS = $(CCXFLAGS) -L. -l:$(LIBPROJECT)
+
+LDGTESTFLAGS = $(LDXXFLAGS) -lgtest_main -lgtest -lpthread
+
+.PHONY: default
+
+default: all;
+
+%.o: %.cpp $(DEPS)
+	$(CXX) -c -o $@ $< $(CXXFLAGS)
+	
+$(LIBPROJECT): $(OBJECTS)
+	$(A) $(AFLAGS) $@ $^
+	
+$(PROJECT): main.o $(LIBPROJECT)
+	$(CXX) -o $@ main.o $(LDXXFLAGS)
+	
+$(TESTPROJECT): $(LIBPROJECT) $(TEST_OBJECTS)
+	$(CXX) -o $@ $(TEST_OBJECTS) $(LDGTESTFLAGS)
+
+test: $(TESTPROJECT)
+
+all: $(PROJECT)
+
+.PHONY: clean
 
 clean:
-	rm *.o run 
+	rm -f *.o
+
+cleanall: clean
+	rm -f $(PROJECT)
+	rm -f $(LIBPROJECT)
+	rm -f $(TESTPROJECT)
