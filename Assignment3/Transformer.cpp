@@ -7,7 +7,9 @@ Transfromer class definition
 
 Transformer :: Transformer(Weapon weapon, unsigned health, unsigned size, unsigned strength)
 {
+    Communicate_module communicate_module;
     _weapon = weapon;
+    _communicate_module = communicate_module;
     _health = health;
     _size = size;
     _strength = strength;
@@ -16,7 +18,9 @@ Transformer :: Transformer(Weapon weapon, unsigned health, unsigned size, unsign
 Transformer :: Transformer()
 {
     Weapon weapon;
+    Communicate_module communicate_module;
     _weapon = weapon;
+    _communicate_module = communicate_module;
     _health = 1000;
     _size = 100;
     _strength = 150;
@@ -95,3 +99,23 @@ int Transformer :: get_weapon_damage()
     return _weapon.get_damage();
 }
 
+//Communicate_module stats get methods
+bool Transformer :: is_transformer_understand_transformers_language()
+{
+    return _communicate_module.is_understand_transformers_language();
+}
+
+bool Transformer :: is_transformer_understand_humans_language()
+{
+    return _communicate_module.is_understand_humans_language();
+}
+
+bool Transformer :: is_transformer_speak_transformers_language()
+{
+    return _communicate_module.is_speak_transformers_language();
+}
+
+bool Transformer :: is_transformer_speak_humans_language()
+{
+    return _communicate_module.is_speak_humans_language();
+}

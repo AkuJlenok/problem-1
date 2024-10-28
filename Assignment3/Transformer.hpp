@@ -6,6 +6,7 @@ Transfromer class declaration
 #define Transformer_hpp
 
 #include "Weapon.hpp"
+#include "Communicate_module.hpp"
 
 class Transformer
 {
@@ -25,6 +26,7 @@ class Transformer
         unsigned get_health();
         unsigned get_size();
         unsigned get_strength();
+        
         void set_health(unsigned new_health);
         void set_size(unsigned new_size);
         void set_strength(unsigned new_strength);
@@ -33,8 +35,15 @@ class Transformer
         unsigned get_weapon_cooldown();
         int get_weapon_damage();
         
+        //Communication_module stats get methods
+        bool is_transformer_understand_transformers_language();
+        bool is_transformer_understand_humans_language();
+        bool is_transformer_speak_transformers_language();
+        bool is_transformer_speak_humans_language();
+        
     private:
         Weapon _weapon;
+        Communicate_module _communicate_module;
         unsigned _health;
         unsigned _size;
         unsigned _strength;

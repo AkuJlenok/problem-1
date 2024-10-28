@@ -14,6 +14,10 @@ TEST(Transformers_tests, default_constructor)
     EXPECT_EQ(Zolo.get_strength(), 150);
     EXPECT_EQ(Zolo.get_weapon_damage(), 100);
     EXPECT_EQ(Zolo.get_weapon_cooldown(), 2);
+    EXPECT_EQ(Zolo.is_transformer_understand_transformers_language(), true);
+    EXPECT_EQ(Zolo.is_transformer_understand_humans_language(), true);
+    EXPECT_EQ(Zolo.is_transformer_speak_transformers_language(), true);
+    EXPECT_EQ(Zolo.is_transformer_speak_humans_language(), false);
 }
 
 TEST(Transformers_tests, constructor)
@@ -25,6 +29,10 @@ TEST(Transformers_tests, constructor)
     EXPECT_EQ(Zolo.get_strength(), 100);
     EXPECT_EQ(Zolo.get_weapon_damage(), 1250);
     EXPECT_EQ(Zolo.get_weapon_cooldown(), 15);
+    EXPECT_EQ(Zolo.is_transformer_understand_transformers_language(), true);
+    EXPECT_EQ(Zolo.is_transformer_understand_humans_language(), true);
+    EXPECT_EQ(Zolo.is_transformer_speak_transformers_language(), true);
+    EXPECT_EQ(Zolo.is_transformer_speak_humans_language(), false);
 }
 //in Transformers_tests already checks weapon's constructors 
 

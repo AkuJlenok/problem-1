@@ -4,7 +4,7 @@ TESTPROJECT = test-$(PROJECT)
 
 LIBPROJECT = $(PROJECT).a
 
-OBJECTS = Transformer.o Weapon.o
+OBJECTS = Transformer.o Weapon.o Communicate_module.o
 
 TEST_OBJECTS = test-transformer.o
 
