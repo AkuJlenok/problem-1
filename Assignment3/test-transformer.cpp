@@ -5,6 +5,7 @@ tests for all classes
 #include <gtest/gtest.h>
 #include <iostream>
 #include "Zoomorph.hpp"
+#include "Insecticon.hpp"
 
 TEST(Transformers_tests, default_constructor)
 {
@@ -93,6 +94,39 @@ TEST(Zoomorph_tests, set_methods)
     EXPECT_EQ(Zolo.is_hiding(),false);
     Zolo.set_animal_power(100);
     EXPECT_EQ(Zolo.get_animal_power(),100);
+}
+
+TEST(Insecticon_tests, default_constructor)
+{
+    Insecticon Zolo;
+    EXPECT_EQ(Zolo.is_flying(), false);
+    EXPECT_EQ(Zolo.is_in_the_air(), false);
+    EXPECT_EQ(Zolo.get_chitin(), 100);
+}
+
+TEST(Insecticon_tests, constructor)
+{
+    Weapon fangs(50,1,true,false);
+    Insecticon Zolo(fangs,2000,200,100,true);
+    EXPECT_EQ(Zolo.is_flying(), true);
+    EXPECT_EQ(Zolo.is_in_the_air(), false);
+    EXPECT_EQ(Zolo.get_chitin(), 100);
+    EXPECT_EQ(Zolo.get_health(), 2000);
+    EXPECT_EQ(Zolo.get_size(), 200);
+    EXPECT_EQ(Zolo.get_strength(), 100);
+    EXPECT_EQ(Zolo.get_weapon_damage(), 50);
+    EXPECT_EQ(Zolo.get_weapon_cooldown(), 1);
+}
+
+TEST(Insecticon_tests, set_methods)
+{
+    Weapon tusk(100,1,true,false);
+    Insecticon Zolo(tusk,2000,200,100,true);
+    Zolo.fly();
+    EXPECT_EQ(Zolo.is_in_the_air(), true);
+    Zolo.land();
+    EXPECT_EQ(Zolo.is_in_the_air(), false);
+    EXPECT_EQ(Zolo.get_chitin(), 100);
 }
 
 int main()
