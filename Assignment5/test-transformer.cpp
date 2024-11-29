@@ -4,6 +4,7 @@ tests for all classes
 
 #include <gtest/gtest.h>
 #include <iostream>
+#include <vector>
 #include "Zoomorph.hpp"
 #include "Insecticon.hpp"
 #include "Desipticon.hpp"
@@ -194,14 +195,6 @@ TEST(Overload, comparison)
 }
 
 //Assignment5 tests
-TEST(Transformers_tests, virtual_methods)
-{
-    Transformer Zolo;
-    EXPECT_TRUE(Zolo.transform());
-    EXPECT_TRUE(Zolo.use_ultimate());
-    EXPECT_TRUE(Zolo.die());
-}
-
 TEST(Autobots_tests, get_and_set_methods)
 {
     Autobot Zolo;
@@ -210,6 +203,27 @@ TEST(Autobots_tests, get_and_set_methods)
     EXPECT_EQ(Zolo.get_humanity(), 1000);
 }
 
+TEST(Virtual_methods, correctness_of_virtual_methods)
+{
+    std::vector<Transformer*> army;
+    
+    for(int i = 0; i<3; ++i)
+    {
+        army.push_back(new Transformer());
+        army.push_back(new Autobot());
+        army.push_back(new Desipticon());
+    }
+    
+    for(int j = 0; j < army.size(); ++j)
+    {
+        EXPECT_TRUE(army[j]->transform());
+        EXPECT_TRUE(army[j]->use_ultimate());
+        EXPECT_TRUE(army[j]->die());
+    }
+    
+    army.clear();
+    army.shrink_to_fit();
+}
 
 int main()
 {
