@@ -7,6 +7,7 @@ tests for all classes
 #include "Zoomorph.hpp"
 #include "Insecticon.hpp"
 #include "Desipticon.hpp"
+#include "Overload_operators.hpp"
 
 TEST(Transformers_tests, default_constructor)
 {
@@ -172,6 +173,23 @@ TEST(Desipticon_tests, set_methods)
     EXPECT_EQ(Zolo.is_in_rave(), false);
     EXPECT_EQ(Zolo.is_angry(), false);
     EXPECT_EQ(Zolo.get_strength(), Zolo.get_primary_strength());
+}
+
+//Assignment4 tests
+TEST(Overload, line_output)
+{
+    Transformer Zolo;
+    std::cout << Zolo << std::endl;
+}
+
+TEST(Overload, comparison)
+{
+    Weapon weapon;
+    Insecticon Zolo_insec(weapon, 1000, 100, 500, false);
+    Desipticon Zolo_evil(weapon, 1000, 100, 499);
+    EXPECT_TRUE(Zolo_insec > Zolo_evil);
+    EXPECT_FALSE(Zolo_insec < Zolo_evil);
+    EXPECT_TRUE(Zolo_insec == Zolo_insec);
 }
 
 int main()

@@ -58,17 +58,17 @@ bool  Transformer :: flip()
 }
 
 //Transformer's stats get or set methods
-unsigned Transformer :: get_health()
+unsigned Transformer :: get_health() const
 {
     return _health;
 }
 
-unsigned Transformer :: get_size()
+unsigned Transformer :: get_size() const
 {
     return _size;
 }
 
-unsigned Transformer :: get_strength()
+unsigned Transformer :: get_strength() const
 {
     return _strength;
 }

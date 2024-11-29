@@ -23,9 +23,9 @@ public:
     bool flip();
 
     //Transformers stats get or set methods
-    unsigned get_health();
-    unsigned get_size();
-    unsigned get_strength();
+    unsigned get_health() const;
+    unsigned get_size() const;
+    unsigned get_strength() const;
 
     void set_health(unsigned new_health);
     void set_size(unsigned new_size);
