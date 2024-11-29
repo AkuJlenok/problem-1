@@ -19,7 +19,6 @@ public:
     bool move();
     bool jump();
     bool attack();
-    bool transform();
     bool flip();
 
     //Transformers stats get or set methods
@@ -40,6 +39,11 @@ public:
     bool is_transformer_understand_humans_language();
     bool is_transformer_speak_transformers_language();
     bool is_transformer_speak_humans_language();
+
+    //Virtual classes
+    virtual bool transform();
+    virtual bool use_ultimate();
+    virtual bool die();
 
 private:
     Weapon _weapon;

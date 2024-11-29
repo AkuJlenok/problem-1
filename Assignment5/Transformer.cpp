@@ -47,11 +47,6 @@ bool Transformer :: attack()
     return false;
 }
 
-bool Transformer :: transform()
-{
-    return false;
-}
-
 bool  Transformer :: flip()
 {
     return false;
@@ -118,4 +113,23 @@ bool Transformer :: is_transformer_speak_transformers_language()
 bool Transformer :: is_transformer_speak_humans_language()
 {
     return _communicate_module.is_speak_humans_language();
+}
+
+//Virtual methods
+bool Transformer :: transform()
+{
+    std::cout<< "transform() by Transformer" <<std::endl;
+    return true;
+}
+
+bool Transformer :: use_ultimate()
+{
+    std::cout<< "use_ultimate() by Transformer" <<std::endl;
+    return true;
+}
+
+bool Transformer :: die()
+{
+    std::cout<< "die() by Transformer" <<std::endl;
+    return true;
 }

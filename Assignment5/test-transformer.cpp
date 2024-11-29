@@ -7,6 +7,7 @@ tests for all classes
 #include "Zoomorph.hpp"
 #include "Insecticon.hpp"
 #include "Desipticon.hpp"
+#include "Autobot.hpp"
 #include "Overload_operators.hpp"
 
 TEST(Transformers_tests, default_constructor)
@@ -191,6 +192,24 @@ TEST(Overload, comparison)
     EXPECT_FALSE(Zolo_insec < Zolo_evil);
     EXPECT_TRUE(Zolo_insec == Zolo_insec);
 }
+
+//Assignment5 tests
+TEST(Transformers_tests, virtual_methods)
+{
+    Transformer Zolo;
+    EXPECT_TRUE(Zolo.transform());
+    EXPECT_TRUE(Zolo.use_ultimate());
+    EXPECT_TRUE(Zolo.die());
+}
+
+TEST(Autobots_tests, get_and_set_methods)
+{
+    Autobot Zolo;
+    EXPECT_EQ(Zolo.get_humanity(), 100);
+    Zolo.set_humanity(1000);
+    EXPECT_EQ(Zolo.get_humanity(), 1000);
+}
+
 
 int main()
 {
