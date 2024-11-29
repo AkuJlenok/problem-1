@@ -1,11 +1,21 @@
 # Assignment 1
 ## Author
-Begaliev Kirill Evgenievich, 24.B82-mm
-## Contacts
+Begaliev Kirill Evgenievich, 24.B82-mm <br>
 st129977@student.spbu.ru
 ## Description
 Home Assignment 1 - "Hello world" but better than usually, firstly says "Hello, world!", after this reads string in a cycle and says "Hello, < string >"
 ## Build
-"make" to build project
+#### To build project
+```bash
+make
+```
+#### To delete all compiled and created files 
+```bash
+make clean
+```
 ## Run
-./output to run it, you can stop infinite cycle by typing "stop"
+#### To run program
+```bash
+./output
+```
+You can stop infinite cycle by typing **stop** in console
