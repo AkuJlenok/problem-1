@@ -95,3 +95,22 @@ void Desipticon :: get_angry()
         rave();
     }
 }
+
+//virtual methods
+bool Desipticon :: transform()
+{
+    std::cout<< "transform() by Desipticon" <<std::endl;
+    return true;
+}
+
+bool Desipticon :: use_ultimate()
+{
+    std::cout<< "use_ultimate() by Desipticon" <<std::endl;
+    return true;
+}
+
+bool Desipticon :: die()
+{
+    std::cout<< "die() by Desipticon" <<std::endl;
+    return true;
+}

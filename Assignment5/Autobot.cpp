@@ -29,3 +29,22 @@ void Autobot :: set_humanity(unsigned humanity)
 {
     _humanity = humanity;
 }
+
+//virtual methods
+bool Autobot :: transform()
+{
+    std::cout<< "transform() by Autobot" <<std::endl;
+    return true;
+}
+
+bool Autobot :: use_ultimate()
+{
+    std::cout<< "use_ultimate() by Autobot" <<std::endl;
+    return true;
+}
+
+bool Autobot :: die()
+{
+    std::cout<< "die() by Autobot" <<std::endl;
+    return true;
+}

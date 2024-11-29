@@ -16,6 +16,11 @@ public:
 
     unsigned get_humanity();
     void set_humanity(unsigned humanity);
+    
+    //virtual methods
+    bool transform();
+    bool use_ultimate();
+    bool die();
 
 private:
     unsigned _humanity;

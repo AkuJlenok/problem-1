@@ -28,6 +28,11 @@ public:
     void set_rage(unsigned new_rage);
     void calm_down();
     void get_angry();
+    
+    //virtual methods
+    bool transform();
+    bool use_ultimate();
+    bool die();
 
 private:
     unsigned _primary_strength;
