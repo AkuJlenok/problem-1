@@ -16,7 +16,7 @@ AFLAGS = rsv
 
 CXX = g++
 
-CCXFLAGS = -I. -std=c++17 -Wall -g -fPIC
+CCXFLAGS = -I. -std=c++17 -Werror -Wpedantic -Wall -g -fPIC
 
 LDXXFLAGS = $(CCXFLAGS) -L. -l:$(LIBPROJECT)
 

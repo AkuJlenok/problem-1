@@ -10,17 +10,17 @@ string text = "";
 
 int Hello()
 {
-	cout<<"Hello, world!"<<endl;
-	
-	while (true)
-	{
-		getline(cin,text);
-		if (text == "stop")
-		{
-			break;
-		}
-		cout<<"Hello, " << text << "!" <<endl; 
-	}
-	
-	return 0;
+    cout<<"Hello, world!"<<endl;
+
+    while (true)
+    {
+        getline(cin,text);
+        if (text == "stop")
+        {
+            break;
+        }
+        cout<<"Hello, " << text << "!" <<endl;
+    }
+
+    return 0;
 }

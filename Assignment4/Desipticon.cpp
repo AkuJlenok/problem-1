@@ -37,7 +37,7 @@ void Desipticon :: rave()
         _in_rave = true;
     }
 }
-        
+
 //get methods
 unsigned Desipticon :: get_primary_strength()
 {
@@ -57,11 +57,11 @@ unsigned Desipticon :: get_rage()
 bool Desipticon :: is_angry()
 {
     return _angry;
-}        
+}
 
 bool Desipticon :: is_in_rave()
 {
-    return _in_rave;    
+    return _in_rave;
 }
 
 //set methods
@@ -88,7 +88,7 @@ void Desipticon :: get_angry()
     {
         _angry = true;
     }
-    
+
     else
     {
         _rage += _level_of_evil;

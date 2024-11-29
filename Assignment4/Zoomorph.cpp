@@ -39,7 +39,7 @@ unsigned Zoomorph :: get_animal_power()
 {
     return _animal_power;
 }
-        
+
 //set methods
 void Zoomorph :: hide()
 {

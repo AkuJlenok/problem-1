@@ -13,11 +13,11 @@ int Array ()
     std::ifstream infile;
     infile.open("filetoread",std::ios::binary|std::ios::in);
     int file_size = std::filesystem::file_size("filetoread") - 1;
-    
+
     //arrays to save and reverse file
     char* file = new char [file_size];
     char* reversed_file = new char [file_size];
-    
+
     //saves file into array and reverses into another one
     infile.read(file,file_size);
     infile.close();
@@ -26,13 +26,13 @@ int Array ()
         reversed_file[i] = file[file_size-i-1];
     }
     delete [] file;
-    
+
     //writes reversed array into the new file
     std::ofstream outfile;
     outfile.open("answer_file",std::ios::binary|std::ios::out);
     outfile.write(reversed_file,file_size);
     delete [] reversed_file;
     outfile.close();
-    
-    return 0;   
+
+    return 0;
 }

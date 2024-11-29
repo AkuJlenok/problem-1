@@ -17,11 +17,11 @@ float Polski()
     float number = 0;
     float* stack = new float [1];
     stack[0] = 0;
-    
+
     std::string line = "";
     getline(std::cin,line);
     line = line + ' '; //adds space to give answer if in string only 1 number
-    
+
     for (int i = 0; i < line.length(); ++i)
     {
         symbol = line[i];
@@ -37,13 +37,13 @@ float Polski()
                 {
                     temp_stack[j] = stack[j];
                 }
-                
+
                 //new number in temporary stack
                 temp_stack[stack_size - 1] = number * pow(10,power);
                 number = 0;
                 power = 0;
                 operand_exist = false;
-                
+
                 //temporary stack -> stack
                 delete [] stack;
                 float* stack = new float [stack_size];
@@ -54,7 +54,7 @@ float Polski()
                 delete [] temp_stack;
             }
         }
-        
+
         else
         {
             stack_size = stack_size - 1;
@@ -64,61 +64,61 @@ float Polski()
                 delete [] temp_stack;
                 float* temp_stack = new float [stack_size];
             }
-            
+
             switch(symbol)
             {
-                case '+':
-                    for (int a1 = 0; a1 < (stack_size - 1); ++a1)
-                    {
-                        temp_stack[a1] = stack[a1];
-                    }
-                    
-                    temp_stack[stack_size-1] = stack[stack_size-1] + stack[stack_size];
-                    was_operation = true;
-                    delete [] stack;
-                    break;
-                    
-                case '-':
-                    for (int a2 = 0; a2 < (stack_size - 1); ++a2)
-                    {
-                        temp_stack[a2] = stack[a2];
-                    }
-                    
-                    temp_stack[stack_size-1] = stack[stack_size-1] - stack[stack_size];
-                    was_operation = true;
-                    delete [] stack;
-                    break;
-                    
-                case '*':
-                    for (int a3 = 0; a3 < (stack_size - 1); ++a3)
-                    {
-                        temp_stack[a3] = stack[a3];
-                    }
-                    
-                    temp_stack[stack_size-1] = stack[stack_size-1] * stack[stack_size];
-                    was_operation = true;
-                    delete [] stack;
-                    break;
-                    
-                case '/':
-                    for (int a4 = 0; a4 < (stack_size - 1); ++a4)
-                    {
-                        temp_stack[a4] = stack[a4];
-                    }
-                    
-                    temp_stack[stack_size-1] = stack[stack_size-1] / stack[stack_size];
-                    was_operation = true;
-                    delete [] stack;
-                    break;
-                    
-                default: //reads all digits
-                    stack_size = stack_size + 1;
-                    digit = symbol - '0';
-                    power = power + 1;
-                    number = number + digit*pow(10, power*(-1));
-                    operand_exist = true;
+            case '+':
+                for (int a1 = 0; a1 < (stack_size - 1); ++a1)
+                {
+                    temp_stack[a1] = stack[a1];
+                }
+
+                temp_stack[stack_size-1] = stack[stack_size-1] + stack[stack_size];
+                was_operation = true;
+                delete [] stack;
+                break;
+
+            case '-':
+                for (int a2 = 0; a2 < (stack_size - 1); ++a2)
+                {
+                    temp_stack[a2] = stack[a2];
+                }
+
+                temp_stack[stack_size-1] = stack[stack_size-1] - stack[stack_size];
+                was_operation = true;
+                delete [] stack;
+                break;
+
+            case '*':
+                for (int a3 = 0; a3 < (stack_size - 1); ++a3)
+                {
+                    temp_stack[a3] = stack[a3];
+                }
+
+                temp_stack[stack_size-1] = stack[stack_size-1] * stack[stack_size];
+                was_operation = true;
+                delete [] stack;
+                break;
+
+            case '/':
+                for (int a4 = 0; a4 < (stack_size - 1); ++a4)
+                {
+                    temp_stack[a4] = stack[a4];
+                }
+
+                temp_stack[stack_size-1] = stack[stack_size-1] / stack[stack_size];
+                was_operation = true;
+                delete [] stack;
+                break;
+
+            default: //reads all digits
+                stack_size = stack_size + 1;
+                digit = symbol - '0';
+                power = power + 1;
+                number = number + digit*pow(10, power*(-1));
+                operand_exist = true;
             }
-            
+
             if (was_operation)
             {
                 float* stack = new float [stack_size];
@@ -127,9 +127,9 @@ float Polski()
                     stack[l] = temp_stack[l];
                 }
             }
-            
+
             delete [] temp_stack;
-        }    
+        }
     }
     std::cout<<stack[stack_size-1]<<std::endl;
     return 0;

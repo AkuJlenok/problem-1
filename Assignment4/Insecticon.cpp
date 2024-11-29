@@ -22,7 +22,7 @@ Insecticon :: ~Insecticon()
 {
     std::cout<< "Inseticon was destroyed"<<std::endl;
 }
-        
+
 //get methods
 bool Insecticon :: is_flying()
 {
@@ -38,7 +38,7 @@ unsigned Insecticon :: get_chitin()
 {
     return _chitin;
 }
-        
+
 //set methods
 void Insecticon :: fly()
 {
