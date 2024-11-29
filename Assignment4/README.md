@@ -30,6 +30,6 @@ make cleanall
 ```
 #### To run tests
 ```bash 
-./test-transformer to run tests
+./test-transformer
 ```
 
