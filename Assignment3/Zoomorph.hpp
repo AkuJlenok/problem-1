@@ -16,7 +16,7 @@ public:
 
     //get methods
     bool is_hiding();
-    bool is_imitating();;
+    bool is_imitating();
     unsigned get_animal_power();
 
     //set methods

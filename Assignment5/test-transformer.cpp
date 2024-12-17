@@ -214,7 +214,7 @@ TEST(Virtual_methods, correctness_of_virtual_methods)
         army.push_back(new Desipticon());
     }
     
-    for(int j = 0; j < army.size(); ++j)
+    for(unsigned int j = 0; j < army.size(); ++j)
     {
         EXPECT_TRUE(army[j]->transform());
         EXPECT_TRUE(army[j]->use_ultimate());
