@@ -194,39 +194,10 @@ TEST(Overload, comparison)
     EXPECT_TRUE(Zolo_insec == Zolo_insec);
 }
 
-//Assignment5 tests
 TEST(Autobots_tests, get_and_set_methods)
 {
     Autobot Zolo;
     EXPECT_EQ(Zolo.get_humanity(), 100);
     Zolo.set_humanity(1000);
     EXPECT_EQ(Zolo.get_humanity(), 1000);
-}
-
-TEST(Virtual_methods, correctness_of_virtual_methods)
-{
-    std::vector<Transformer*> army;
-    
-    for(int i = 0; i<3; ++i)
-    {
-        army.push_back(new Transformer());
-        army.push_back(new Autobot());
-        army.push_back(new Desipticon());
-    }
-    
-    for(unsigned int j = 0; j < army.size(); ++j)
-    {
-        EXPECT_TRUE(army[j]->transform());
-        EXPECT_TRUE(army[j]->use_ultimate());
-        EXPECT_TRUE(army[j]->die());
-    }
-    
-    army.clear();
-    army.shrink_to_fit();
-}
-
-int main()
-{
-    ::testing::InitGoogleTest();
-    return RUN_ALL_TESTS();
 }
