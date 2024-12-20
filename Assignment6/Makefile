@@ -1,16 +1,17 @@
-PROJECT = run
+PROJECT = test-run
+
+SRC = test-run.cpp
 
 CXX = g++
 
-CXXFLAGS = -I. -std=c++17 -Wall -Werror -Wpedantic -g -fPIC
-TESTFLAGS = $< $(CXXFLAGS) -lgtest -lgtest_main -pthread
+CXXFLAGS = -I. -std=c++17 -Wpedantic -Wall -g -fPIC
+TESTFLAGS = $(CXXFLAGS) -lgtest_main -lgtest -lpthread
 
-MAIN = main.cpp
-
-$(PROJECT) : $(MAIN)
-	$(CXX) -o $@ $< $(TESTFLAGS)
+$(PROJECT): $(SRC)
+	$(CXX) -o $@ $^ $(TESTFLAGS)
 
 all: $(PROJECT)
 
+
 clean:
-	rm $(PROJECT)
+	rm -f $(PROJECT)

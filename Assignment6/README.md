@@ -3,7 +3,7 @@
 Begaliev Kirill Evgenievich, 24.B82-mm <br>
 st129977@student.spbu.ru , tg: @silly_kat
 ## Description
-Templates with 3 classes that test it
+Templates with 3 classes that test it in TESTS
 ## Build
 #### To build project
 ```bash
@@ -14,7 +14,7 @@ make
 make clean
 ```
 ## Run
-#### To run program
+#### To run tests
 ```bash
-./run
+./test-run
 ```
